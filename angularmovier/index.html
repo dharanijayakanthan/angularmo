@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp" ng-controller="MovieController">
+  <head>
+    <title ng-bind="'Movie Maker - ' + details.Title"></title>
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+  </head>
+
+  <body>
+    <div class="outerdiv">
+      <nav class="navbar navbar-light navbar-fixed-top" style="background-color:black;">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" data-toggle="tooltip" data-placement="left" style="background-color:black; title="Intresting to see that you are here..this is a static site..developed by dharani..take a tour.."><b>Movie Marker</b></a>
+          </div>
+
+              <form class="navbar-form navbar-left">
+                <div class="form-group">
+  <span class=" search search-bar">
+<input type="text" ng-model="search" ng-model-options="{ debounce: 800 }" onclick="select()" class="form-control" placeholder="Enter full movie name" autofocus data-toggle="tooltip" data-placement="left" title="search for the movie you love"/>
+<i class="glyphicon glyphicon-search"></i>
+</span>
+                </div>
+            </form>
+        </div>
+      </nav>
+
+      <noscript>
+        <div class="nojs">Javascript is disabled or not supported in your browser. Please enable it or use a Javascript enabled browser.</div>
+      </noscript>
+
+        <div id="main-info" ng-include="'otherpage/main-info.html'" class="col-md-9" style="background-color:#ffff"></div>
+        <div id="related-results" class="col-md-2">
+
+        <ul class = "rel-results">
+
+
+          <form ng-submit="addText(details.Title)">
+
+
+            <button type = "submit" class="btn btn-danger" data-toggle="tooltip" data-placement="left" title="wanna add this movie to favorite list...?">
+      <i class ="glyphicon glyphicon-heart"></i>
+
+            Favorite</button>
+      <br>
+      <br>
+      <br>
+            <h4><b>Favorite List</b></h4>
+          </form>
+
+            <li ng-repeat="text in arrayText"><span class="label label-info">{{text}}</span></li>
+          </ul>
+      </div>
+
+        <div id="related-results" ng-include="'otherpage/related-results.html'" class="col-md-6" >
+        </div>
+
+
+
+    <script src="js/angular.min.js"></script>
+    <script src="js/app.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,34 @@
+<div ng-if="!details">
+  Loading results...
+</div>
+
+<div ng-if="details.Response==='True'">
+  <img ng-src="{{ details.Poster=='N/A' ? 'http://placehold.it/150x220&text=N/A' : details.Poster }}" class="thumbnail animated flip movie-poster">
+<div>
+
+  <span class="span-outer">
+    <a href="http://imdb.com/title/{{ details.imdbID }}" target=""><strong><h3>{{ details.Title }}</h3></strong></a>
+  </span> {{ details.Year }}
+
+<p>{{ details.Plot }}</p>
+<br>
+
+<div class = "col-md-4">
+<p class="outer-p-2"><strong><b><span class="label label-success">Crew:</span></b></strong><br>
+<strong>Directors :</strong> {{ details.Director }}<br>
+  <strong>Actors :</strong> {{ details.Actors }}<br>
+      <strong>Genre :</strong> {{ details.Genre }}<br>
+</div>
+  </p>
+</p>
+  <p class="outer-p-2"><span class="label label-success"><strong><b>Ratings:</b></strong></span><br>
+<strong>Released on     :</strong>        {{details.Released }} ({{ details.Runtime }})<br>
+    <strong>IMDb Rating :</strong>    {{ details.imdbRating }}<br>
+    <strong>Rotten Tomatoes :</strong> {{ details.tomatoRating }}
+  </p></div>
+</div>
+<div ng-if="details.Response==='False'">
+  <div class="alert alert-danger">
+  <strong>sorry!! </strong> There is no movie name matching your search from the list of 4,102,564 (Year Range: 1874 - 2115).
+</div>
+</div>
