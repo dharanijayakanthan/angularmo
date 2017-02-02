@@ -1,9 +1,11 @@
 <div ng-if="!details">
-  Loading results...
+  <div class="alert alert-success">
+  <strong>wait!! </strong> Wait we are searching for the match from the list of 4,102,564 movies (Year Range: 1874 - 2115).
+</div>
 </div>
 
 <div ng-if="details.Response==='True'">
-  <img ng-src="{{ details.Poster=='N/A' ? 'http://placehold.it/150x220&text=N/A' : details.Poster }}" class="thumbnail animated flip movie-poster">
+
 <div>
 
   <span class="span-outer">
@@ -11,6 +13,7 @@
   </span> {{ details.Year }}
 
 <p>{{ details.Plot }}</p>
+
 <br>
 
 <div class = "col-md-4">
@@ -21,11 +24,21 @@
 </div>
   </p>
 </p>
+<div class = "col-md-4">
+  <img ng-src="{{ details.Poster=='N/A' ? 'http://placehold.it/150x220&text=N/A' : details.Poster }}" class="thumbnail animated zoomIn movie-poster">
+</div>
+
+
+<div class = "col-md-4">
   <p class="outer-p-2"><span class="label label-success"><strong><b>Ratings:</b></strong></span><br>
-<strong>Released on     :</strong>        {{details.Released }} ({{ details.Runtime }})<br>
+<strong>Released on :</strong>        {{details.Released }} ({{ details.Runtime }})<br>
     <strong>IMDb Rating :</strong>    {{ details.imdbRating }}<br>
     <strong>Rotten Tomatoes :</strong> {{ details.tomatoRating }}
-  </p></div>
+</div>
+  </p>
+
+</div>
+
 </div>
 <div ng-if="details.Response==='False'">
   <div class="alert alert-danger">

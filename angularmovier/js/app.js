@@ -1,5 +1,5 @@
-angular.module('myApp', [])
-  .controller('MovieController', function($scope, $http){
+var myApp = angular.module('myApp', [])
+  myApp.controller('MovieController', function($scope, $http){
     $scope.$watch('search', function() {
       fetch();
     });
